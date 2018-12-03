@@ -1,7 +1,7 @@
 require 'gemtap/version'
 require 'gemtap/loader'
-require 'gemtap/property'
-require 'gemtap/definition'
+require 'gemtap/models/property'
+require 'gemtap/models/definition'
 
 module Gemtap
   class Error < StandardError; end

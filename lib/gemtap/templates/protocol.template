@@ -1,0 +1,7 @@
+import Foundation
+
+public protocol {{ model.name }} {
+  {% for prop in model.props %}
+  public var {{ prop.name }}: {{ prop.type }} { get set }
+  {% endfor %}
+}
