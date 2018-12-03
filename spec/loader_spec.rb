@@ -8,12 +8,10 @@ describe Gemtap::Loader do
   end
 
   context 'when definition is found' do
-    it 'parses' do
-      parsed = Gemtap::Loader.load('spec/definitions/customer.yaml')
-      expect(parsed['model']).to eq('Customer')
-
-      props = parsed['properties']
-      expect(props.count).to eq(3)
+    it 'parses it into a definition' do
+      defn = Gemtap::Loader.load('spec/definitions/customer.yaml')
+      expect(defn.model).to eq('Customer')
+      expect(defn.props.count).to eq(3)
     end
   end
 end 
