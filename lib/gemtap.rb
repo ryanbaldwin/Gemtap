@@ -11,13 +11,10 @@ module Gemtap
   # Defines the Command Line Interface for Gemtap
   #
   class CLI < Thor
-    desc "hello [name]", "say ny name"
-    def hello(name)
-      if name == "Heisenberg"
-        puts "you are goddamn right"
-      else
-        puts "say my name"
-      end
+    desc "gen [defn_path]", "generates the single yaml definition, or all definitions in the directory"
+    def gen(defn_path)
+      container = Gemtap::DefinitionContainer.new
+      container.load(defn_path).render
     end
   end
 end

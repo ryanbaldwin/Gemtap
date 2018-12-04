@@ -24,13 +24,14 @@ module Gemtap
 
     def default_value_for(type)
       case type.downcase.to_sym
-      when :int then '0'
-      when :uint then '0'
-      when :string then "''"
       when :bool then 'false'
-      when :double then '0.0'
       when :cgfloat then '0.0'
       when :character then "''"
+      when :date then 'Date()'
+      when :double then '0.0'
+      when :int then '0'
+      when :string then "''"
+      when :uint then '0'
       end
     end
   end

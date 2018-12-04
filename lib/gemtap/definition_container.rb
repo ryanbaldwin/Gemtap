@@ -41,14 +41,17 @@ module Gemtap
     def render
       Liquid::Template.error_mode = :strict
       core = core_template
-      @definitions.each { |defn| puts core.render(defn) }
+
+      @definitions.each do |defn|
+        puts core.render('defn' => defn)
+      end
     end
 
     private
 
     def core_template
-      core_path = Pathname.new('__FILE__').expand_path.dirname.join('templates/core.liquid')
-      Liquid::Template.parse(core_path.read)
+      core_path = File.join(File.dirname(File.expand_path(__FILE__)), './templates/core.liquid')
+      Liquid::Template.parse(File.read(core_path))
     end
   end
 end
