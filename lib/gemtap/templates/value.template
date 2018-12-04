@@ -1,7 +1,0 @@
-import Foundation
-
-public struct {{ model.name }}Value {
-  {% for prop in model.props %}
-  public var {{ prop.name }}: {{ prop.type }}
-  {% endfor %}
-}

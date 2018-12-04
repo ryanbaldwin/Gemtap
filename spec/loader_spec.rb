@@ -3,7 +3,7 @@ require 'gemtap'
 describe Gemtap::Loader do
   context 'when definition is not found' do
     it 'raises' do
-      expect { Gemtap::Loader.load("nonexistent.yaml") }.to raise_error(Errno::ENOENT)
+      expect { Gemtap::Loader.load('nonexistent.yaml') }.to raise_error(Errno::ENOENT)
     end
   end
 
@@ -14,4 +14,4 @@ describe Gemtap::Loader do
       expect(defn.props.count).to eq(3)
     end
   end
-end 
+end
