@@ -45,12 +45,12 @@ describe Gemtap::Property do
 
     it 'defaults Character to empty' do
       prop = create_property_of_type 'Character'
-      expect(prop.default_value).to eq("''")
+      expect(prop.default_value).to eq('""')
     end
 
     it 'defaults String properties to empty' do
       prop = create_property_of_type 'String'
-      expect(prop.default_value).to eq("''")
+      expect(prop.default_value).to eq('""')
     end
 
     it 'defaults Bool to false' do

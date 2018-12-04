@@ -1,5 +1,7 @@
+require 'liquid'
+
 module Gemtap
-  class Property
+  class Property < Liquid::Drop
     def name
       @name
     end
@@ -26,11 +28,11 @@ module Gemtap
       case type.downcase.to_sym
       when :bool then 'false'
       when :cgfloat then '0.0'
-      when :character then "''"
+      when :character then '""'
       when :date then 'Date()'
       when :double then '0.0'
       when :int then '0'
-      when :string then "''"
+      when :string then '""'
       when :uint then '0'
       end
     end
