@@ -3,12 +3,12 @@ require 'gemtap'
 describe Gemtap::Definition do
   context 'when initialized with a hash' do
     before(:each) do
-      @definition = Gemtap::Definition.new({
+      @definition = Gemtap::Definition.new(
           'model' => 'Customer',
           'properties' => [
-            ['id', {'type' => 'Int'}],
-            ['name', {'type' => 'String'}],
-            ['createdDate', {'type' => 'Date'}]]})
+            ['id', { 'type' => 'Int' }],
+            ['name', { 'type' => 'String' }],
+            ['createdDate', { 'type' => 'Date' }]])
     end
 
     it 'has a model name' do

@@ -23,16 +23,12 @@ module Gemtap
       pn = Pathname.new(path)
 
       if pn.directory?
-        Pathname.glob(pn, ['*.yml', '*.yaml']).map do |file|
-          yaml = YAML.safe_load(file.read)
-          @definitions << Gemtap::Definitions.new(yaml)
-        end
+        Pathname.glob(pn, ['*.yml', '*.yaml']).map { |file| load_file(file) }
       else
-        yaml = YAML.safe_load(pn.read)
-        @definitions << Gemtap::Definition.new(yaml)
+        load_file(pn)
       end
 
-      return self
+      self
     end
 
     #
@@ -48,6 +44,11 @@ module Gemtap
     end
 
     private
+
+    def load_file(file)
+      yaml = YAML.safe_load(pathname.read)
+      @definitions << Gemtap::Definition.new(yaml)
+    end
 
     def core_template
       core_path = File.join(File.dirname(File.expand_path(__FILE__)), './templates/core.liquid')
