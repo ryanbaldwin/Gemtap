@@ -2,13 +2,8 @@ require 'liquid'
 
 module Gemtap
   class Definition < Liquid::Drop
-    def model 
-      @model
-    end
-
-    def props
-      @props
-    end
+    attr_reader :model
+    attr_reader :props
 
     def initialize(hash)
       @model = hash['model']
