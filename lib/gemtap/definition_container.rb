@@ -23,9 +23,12 @@ module Gemtap
       pn = Pathname.new(path)
 
       if pn.directory?
-        @definitions += Pathname.glob(pn, ['*.yml', '*.yaml']).map Definition.read
+        filter = ['*.yml', '*.yaml']
+        defs = Pathname.glob(path, filter)
+        print(defs)
+        @definitions += defs.map Definition.read
       else
-        @definitions << reader(pn)
+        @definitions << Definition.read(pn)
       end
 
       self
