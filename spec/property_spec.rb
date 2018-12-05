@@ -1,7 +1,7 @@
 require 'gemtap'
 
 def create_property_of_type(type)
-  Gemtap::Property.new(['id', { 'type' => type }])
+  Gemtap::Property.new('name' => 'id', 'type' => type)
 end
 
 describe Gemtap::Property do
@@ -25,12 +25,10 @@ describe Gemtap::Property do
 
   context 'default values' do
     it 'uses the default when provided' do
-      prop = Gemtap::Property.new(
-        ['id',
-          { 'type' => 'Int',
-            'default' => '50' }
-        ])
-        expect(prop.default_value).to eq('50')
+      prop = Gemtap::Property.new('name'    => 'id',
+                                  'type'    => 'Int',
+                                  'default' => '50')
+      expect(prop.default_value).to eq('50')
     end
 
     it 'has nil default value when optional and not provided' do

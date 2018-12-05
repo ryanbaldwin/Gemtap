@@ -1,5 +1,0 @@
-model: Customer
-properties:
-  id: {type: Int}
-  name: {type: String}
-  createdDate: {type: Date}

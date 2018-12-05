@@ -45,14 +45,10 @@ module Gemtap
 
     private
 
-    def load_file(file)
-      yaml = YAML.safe_load(pathname.read)
-      @definitions << Gemtap::Definition.new(yaml)
-    end
-
     def core_template
-      core_path = File.join(File.dirname(File.expand_path(__FILE__)), './templates/core.liquid')
-      Liquid::Template.parse(File.read(core_path))
+      core_path = Pathname.new(__FILE__).dirname + './templates/core.liquid'
+      # core_path = File.join(File.dirname(File.expand_path(__FILE__)), './templates/core.liquid')
+      Liquid::Template.parse(File.read(core_path.expand_path))
     end
   end
 end

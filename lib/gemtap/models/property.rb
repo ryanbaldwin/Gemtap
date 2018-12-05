@@ -12,12 +12,8 @@ module Gemtap
     attr_reader :name
 
     #
-    # The type (Int, String, Bool?, etc) for this
-    #
-    # @return [String] The property type
-    def type
-      @attrs['type']
-    end
+    # The type (Int, String, Bool?, etc) for this property
+    attr_reader :type
 
     #
     # The default value specified for this value, if one exists.
@@ -30,10 +26,10 @@ module Gemtap
     # one was specified; otherwise if the property is required a sensible
     # default will be returned; otherwise nil.
     def default_value
-      return @attrs['default'] if @attrs.key?('default')
-      return nil if type.end_with? '?'
+      return @default if @default
+      return nil if @type.end_with? '?'
 
-      default_value_for(type.downcase.to_sym)
+      default_value_for(@type.downcase.to_sym)
     end
 
     #
@@ -43,11 +39,14 @@ module Gemtap
     #
     # @return [type] [description]
     def initialize(prop)
-      @name = prop.first
-      @attrs = prop.last
+      @name, @type, @default = prop.values_at('name', 'type', 'default')
     end
 
     private
+
+    #
+    # The default value
+    attr_reader :default
 
     #
     # Given a type, returns an appropriate, minimum viable value

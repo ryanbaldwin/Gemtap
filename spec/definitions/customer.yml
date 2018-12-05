@@ -1,0 +1,8 @@
+Customer:
+    - name    : id
+      type    : Int
+    - name    : name
+      type    : String
+    - name    : age
+      type    : Int
+      default : 40
