@@ -23,9 +23,9 @@ module Gemtap
       pn = Pathname.new(path)
 
       if pn.directory?
-        Pathname.glob(pn, ['*.yml', '*.yaml']).map { |file| load_file(file) }
+        @definitions += Pathname.glob(pn, ['*.yml', '*.yaml']).map Definition.read
       else
-        load_file(pn)
+        @definitions << reader(pn)
       end
 
       self
