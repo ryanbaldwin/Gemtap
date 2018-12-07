@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"safe",
+				"safe_load"
+			],
+			[
 				"reco",
 				"recovered_value"
 			]
@@ -11,66 +15,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "lib/gemtap/definition_container.rb",
-			"settings":
-			{
-				"buffer_size": 1259,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "spec/definition_spec.rb",
-			"settings":
-			{
-				"buffer_size": 901,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "{\n  \"erb_verify_command\": \"erb -xT - {file_name} | ruby -c\",\n  \"ruby_verify_command\": \"ruby -c {file_name}\",\n\n  \"run_ruby_unit_command\": \"ruby -Itest {relative_path}\",\n  \"run_single_ruby_unit_command\": \"ruby -Itest {relative_path} -n '{test_name}'\",\n\n  \"run_cucumber_command\": \"cucumber {relative_path}\",\n  \"run_single_cucumber_command\": \"cucumber {relative_path} -l{line_number}\",\n\n  \"run_rspec_command\": \"rspec {relative_path}\",\n  \"run_single_rspec_command\": \"rspec {relative_path}:{line_number}\",\n\n  \"ruby_unit_folder\": \"test\",\n  \"ruby_cucumber_folder\": \"features\",\n  \"ruby_rspec_folder\": \"spec\",\n\n  \"check_for_chruby\": false,\n  \"check_for_rbenv\": false,\n  \"check_for_rvm\": false,\n  \"check_for_bundler\": false,\n  \"check_for_spring\": false,\n\n  \"ruby_use_scratch\" : false,\n  \"save_on_run\": false,\n  \"ignored_directories\": [\".git\", \"vendor\", \"tmp\"],\n\n  \"hide_panel\": false,\n\n  \"before_callback\": \"\",\n  \"after_callback\": \"\",\n\n  \"theme\": \"Packages/RubyTest/TestConsole.hidden-tmTheme\",\n  \"syntax\": \"Packages/RubyTest/TestConsole.tmLanguage\",\n\n  \"terminal_encoding\": \"utf-8\"\n\n}\n",
-			"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/RubyTest.sublime-settings",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 1075,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "lib/gemtap/models/definition.rb",
-			"settings":
-			{
-				"buffer_size": 253,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "[\n  { \"keys\": [\"super+shift+r\"], \"command\": \"run_single_ruby_test\",\n    \"context\": [ { \"key\": \"selector\", \"operator\": \"equal\",\n                   \"operand\": \"source.ruby, source.rspec, text.gherkin.feature\"\n               } ]\n  }, // single test\n\n\n  { \"keys\": [\"super+shift+t\"], \"command\": \"run_all_ruby_test\",\n      \"context\": [ { \"key\": \"selector\", \"operator\": \"equal\",\n\t\t     \"operand\": \"source.ruby, source.rspec, text.gherkin.feature\"\n                } ]\n  }, // test file\n\n\n  { \"keys\": [\"super+shift+e\"], \"command\": \"run_last_ruby_test\" }, // test last test file\n\n  { \"keys\": [\"super+shift+x\"], \"command\": \"show_test_panel\" }, // show test panel\n\n  { \"keys\": [\"alt+shift+v\"], \"command\": \"verify_ruby_file\",\n    \"context\": [ { \"key\": \"selector\", \"operator\": \"equal\",\n                   \"operand\": \"source.ruby\"\n               } ]\n  }, // verify ruby syntax\n\n  { \"keys\": [\"super+period\"],\n      \"command\": \"switch_between_code_and_test\",\n      \"args\": {\"split_view\": false},\n      \"context\": [ { \"key\": \"selector\", \"operator\": \"equal\",\n                   \"operand\": \"source.ruby, source.rspec, text.gherkin.feature\"\n               } ]\n  }, // switch between code and test in single mode\n\n  { \"keys\": [\"super+ctrl+period\"],\n      \"command\": \"switch_between_code_and_test\",\n      \"args\": {\"split_view\": true},\n      \"context\": [ { \"key\": \"selector\", \"operator\": \"equal\",\n                   \"operand\": \"source.ruby, source.rspec, text.gherkin.feature\"\n               } ]\n  }, // switch between code and test in split view\n\n  { \"keys\": [\"super+shift+c\"], \"command\": \"generate_file\" } // create new file\n]\n",
-			"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/Default (OSX).sublime-keymap",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 1605,
-				"line_ending": "Unix",
-				"read_only": true,
-				"scratch": true
-			}
-		},
-		{
-			"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/RubyTest.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 327,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -83,6 +27,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"syncset",
+				"Sync Settings: Upload"
+			],
 			[
 				"sync",
 				"Sync Settings: Upload"
@@ -356,16 +304,20 @@
 	},
 	"expanded_folders":
 	[
+		"/Users/ryanbaldwin/dev/github/Gemtap",
+		"/Users/ryanbaldwin/dev/github/Gemtap/bin"
 	],
 	"file_history":
 	[
+		"/Users/ryanbaldwin/dev/github/Gemtap/lib/gemtap/models/definition.rb",
+		"/Users/ryanbaldwin/dev/github/Gemtap/lib/gemtap/definition_container.rb",
+		"/Users/ryanbaldwin/dev/github/Gemtap/spec/definition_spec.rb",
+		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/RubyTest.sublime-settings",
+		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/RubyTest.sublime-settings",
+		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/Default (OSX).sublime-keymap",
 		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/foo.sublime-build",
 		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/Default.sublime-keymap",
-		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/RubyTest.sublime-settings",
-		"/Users/ryanbaldwin/dev/github/Gemtap/lib/gemtap/models/definition.rb",
 		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/SyncSettings.sublime-settings",
-		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/Default (OSX).sublime-keymap",
-		"/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/RubyTest.sublime-settings",
 		"/Users/ryanbaldwin/dev/github/Gemtap/spec/property_spec.rb",
 		"/Users/ryanbaldwin/dev/github/Gemtap/spec/loader_spec.rb",
 		"/Users/ryanbaldwin/src/github.com/Shopify/arrive-server/test/controllers/concerns/authenticatable_test.rb",
@@ -460,263 +412,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "lib/gemtap/definition_container.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1259,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								428,
-								428
-							]
-						],
-						"settings":
-						{
-							"SL.117.region_keys":
-							[
-							],
-							"SL.13.region_keys":
-							[
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|8fe0f7db747074aec21ba3937daba96e7e5e1369e897db98301d891009535119|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.rubocop.Highlights.|f90f950f2eaf6449d6a239e4a6dc3706cb2376928ad9e0209d9eee2882716f9c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|e02a3142e133f711bc555d331f97aaed874c76e567a1a18501e5f761792ae3c2|region.yellowish markup.warning.sublime_linter|32"
-							],
-							"SL.14.region_keys":
-							[
-							],
-							"git_gutter_is_enabled": true,
-							"rainbow_inited": true,
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "spec/definition_spec.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 901,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								634,
-								634
-							]
-						],
-						"settings":
-						{
-							"SL.14.region_keys":
-							[
-								"SL.rubocop.Highlights.|d9d240845a4fbe645900430e61417446f0ef2180ef313c322213dbe7fd2fe700|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|a74380016f5aa95376e7b8a0d6439f00c879763cfce1e26a14e8744879d1bc05|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|d15c5bd83c07c985455204a3ada4324cbf4bfa3e91ff457b4980d6b37bdcf3a3|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|6f29ea518889a3e927eb2d80f3041c1849a8be717df5f3305b21d9d75f4d6908|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|aec671c4fd58076de8f7771a4967a3530b99998dd683325775b3a641c01a044c|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|db5061d56fdebbf70277e1926c33e26bb61123c47cd893b9bf186e28709e6a3f|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|2976827de01cfafc6b87fa4fe23e3497eccd2b1d80864dc4e96cb9400b976732|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.rubocop.Highlights.|2c826ccca95dd11f4b3f4796d595dd1bf3593afda272d5ee9bc45026873177e4|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|314ca508dc92674c8abd6b1a344a11e900b55593e7f803cfa6152f2ec72a8f87|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|7d2474f59c20000c0a09c9e94c5588dea324675068ce84a61fab113b197f11a9|region.yellowish markup.warning.sublime_linter|32"
-							],
-							"SL.15.region_keys":
-							[
-								"SL.rubocop.Highlights.|95ab7d508f8113b0ff8782ba15855830d60db1baffe216e3d84652ece1d38634|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.rubocop.Highlights.|f8b457674a96771db903a8ae6c47c52c6162d9a6ac684690bd173e53a39c8c99|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|0735f50a18bac8807c30893d2179adeb549aa2b2cbb803b3003a05510a30e768|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|30be077f592b574fd78170d041ddeda1d866f13230af5f1699f43e356e24bca3|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|0890bb0fd8b83b9ed81aab6201f9040566813557701083912ef40d3e2a4f6ac3|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|1e2a8457fcaae9676c254d554e4e22a78a0bc4e7e2bd6a211057bba2b1e4d073|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|665d4f197c269a49f7bf0ade22404b7cc17b3d5aabd668fb3922d1e0b26367f7|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|49fbdf2dadf085dc2432409b998cecabc94ae10f2496d01a4538e97b565a6fed|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions",
-								"SL.rubocop.Highlights.|1d1bddc57155eace8c0f635d40aa0046bb334f975b333ec703d0d62fe9f5e98d|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|9e18990469043b0d9797bbd3a99a629c1d713a58ebf4db0aa3b5db0ac425adef|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|68d09844a390bfab7b01d73cedbb8dc67aaba54b3e2a4ff3a5210a138b878642|region.yellowish markup.warning.sublime_linter|32",
-								"SL.rubocop.Highlights.|759a8f781467cfe30e21cd879140952025184c917a0f4c7901eeb1d361214388|region.yellowish markup.warning.sublime_linter|32"
-							],
-							"SL.194.region_keys":
-							[
-							],
-							"git_gutter_is_enabled": true,
-							"rainbow_inited": true,
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 2,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/RubyTest.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1075,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								433,
-								499
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"rainbow_inited": true,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (Sublime).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "lib/gemtap/models/definition.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 253,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								166,
-								166
-							]
-						],
-						"settings":
-						{
-							"SL.32.region_keys":
-							[
-								"SL.rubocop.Gutter.|region.yellowish markup.warning.sublime_linter|dot",
-								"SL.rubocop.Highlights.|5fdd37ff3bebfcc18587d6e4c7297bb1a2d813474d91a745824297c3df431889|region.yellowish markup.warning.sublime_linter|32",
-								"sublime_linter.protected_regions"
-							],
-							"git_gutter_is_enabled": true,
-							"rainbow_inited": true,
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/RubyTest/Default (OSX).sublime-keymap",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1605,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1605,
-								1605
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"rainbow_inited": true,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (Sublime).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "/Users/ryanbaldwin/Library/Application Support/Sublime Text 3/Packages/User/RubyTest.sublime-settings",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 327,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								113,
-								62
-							]
-						],
-						"settings":
-						{
-							"SL.53.region_keys":
-							[
-							],
-							"git_gutter_is_enabled": false,
-							"rainbow_inited": true,
-							"syntax": "Packages/zzz A File Icon zzz/aliases/JSON (Sublime).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -737,25 +434,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
-			],
-			[
-				2,
-				0,
-				3,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.357957596901,
-			0.633508188332,
 			1.0
 		],
 		"rows":
@@ -781,7 +464,7 @@
 	{
 		"height": 108.0
 	},
-	"pinned_build_system": "Packages/User/Ruby.sublime-build",
+	"pinned_build_system": "Packages/User/RubyTest.sublime-build",
 	"project": "Gemtap.sublime-project",
 	"replace":
 	{

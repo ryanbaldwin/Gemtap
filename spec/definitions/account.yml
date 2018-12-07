@@ -1,0 +1,7 @@
+Account:
+    - name    : id
+      type    : Int
+    - name    : username
+      type    : String
+    - name    : email
+      type    : String

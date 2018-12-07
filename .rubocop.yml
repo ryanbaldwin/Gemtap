@@ -1,0 +1,23 @@
+inherit_from:
+  - http://shopify.github.io/ruby-style-guide/rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - bin/bundle
+    - bin/rails
+    - bin/rake
+    - bin/setup
+    - bin/spring
+    - db/schema.rb
+    - db/migrate/*
+    - node_modules/**/*
+
+Rails:
+  Enabled: true
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

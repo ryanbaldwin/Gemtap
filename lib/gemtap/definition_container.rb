@@ -7,8 +7,11 @@ module Gemtap
   # A container into which 1 or more definitions can be loaded
   #
   class DefinitionContainer
+    attr_reader :definitions
+
     def initialize
       @definitions = []
+      @core_template = Pathname.new(__FILE__).dirname + './templates/core.liquid'
     end
 
     #
@@ -21,14 +24,12 @@ module Gemtap
     #
     def load(path)
       pn = Pathname.new(path)
-
-      if pn.directory?
-        filter = ['*.yml', '*.yaml']
-        defs = Pathname.glob(path, filter)
-        print(defs)
-        @definitions += defs.map Definition.read
+      if pn.directory? do
+        pathnames = ["*.yml", "*.yaml"].map { |glob| Pathname.new("#{path}/#{glob}").expand_path }
+        pathnames.each { |pn| @definitions += Pathname.glob(pn) { |file| Definition.read(file) }}
+      end
       else
-        @definitions << Definition.read(pn)
+        @definitions << Definition.read(pn.expand_path)
       end
 
       self
@@ -49,9 +50,7 @@ module Gemtap
     private
 
     def core_template
-      core_path = Pathname.new(__FILE__).dirname + './templates/core.liquid'
-      # core_path = File.join(File.dirname(File.expand_path(__FILE__)), './templates/core.liquid')
-      Liquid::Template.parse(File.read(core_path.expand_path))
+      Liquid::Template.parse(File.read(@core_path.expand_path))
     end
   end
 end
