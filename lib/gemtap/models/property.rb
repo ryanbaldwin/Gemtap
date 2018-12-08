@@ -27,7 +27,7 @@ module Gemtap
     # default will be returned; otherwise nil.
     def default_value
       return @default if @default
-      return nil if @type.end_with? '?'
+      return nil if @type.end_with?('?')
 
       default_value_for(@type.downcase.to_sym)
     end

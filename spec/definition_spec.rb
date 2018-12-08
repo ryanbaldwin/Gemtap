@@ -7,17 +7,17 @@ describe Gemtap::Definition do
       'Customer' => [
         { 'name' => 'name', 'type' => 'String' },
         { 'name' => 'age', 'type' => 'Int' },
-        { 'name' => 'id', 'type' => 'String' }
+        { 'name' => 'id', 'type' => 'String' },
       ]
-      )
+    )
   end
 
   it 'has a model name' do
-    expect(@definition.model).to eq('Customer')
+    expect(@definition.model).to(eq('Customer'))
   end
 
   it 'has properties' do
-    expect(@definition.props.count).to eq(3)
+    expect(@definition.props.count).to(eq(3))
   end
 
   it 'can load form yaml' do

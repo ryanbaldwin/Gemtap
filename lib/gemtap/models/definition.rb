@@ -15,7 +15,7 @@ module Gemtap
     # @return [Gemtap::Definition] An instance representation of the yaml
     def self.read(path)
       yaml = YAML.safe_load(File.read(path))
-      return Definition.new(yaml)
+      Definition.new(yaml)
     end
 
     def initialize(hash)

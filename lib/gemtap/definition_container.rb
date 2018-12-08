@@ -14,20 +14,23 @@ module Gemtap
       @core_template = Pathname.new(__FILE__).dirname + './templates/core.liquid'
     end
 
+    def count
+      @definitions.count
+    end
+
     #
     # Loads a `Definition` into this container
     #
     # @param [String] path A relative path from the executing directory
     # to the definition to be loaded.
     #
-    # @return [<Type>] <description>
+    # @return [DefinitionContainer] This instance of the DefinitionContainer
     #
     def load(path)
       pn = Pathname.new(path)
-      if pn.directory? do
-        pathnames = ["*.yml", "*.yaml"].map { |glob| Pathname.new("#{path}/#{glob}").expand_path }
-        pathnames.each { |pn| @definitions += Pathname.glob(pn) { |file| Definition.read(file) }}
-      end
+      if pn.directory?
+        filters = ["*.yml", "*.yaml"].map { |glob| Pathname.new("#{path}/#{glob}").expand_path }
+        @definitions += filters.map { |f| Pathname.glob(f) { |file| Definition.read(file) } }
       else
         @definitions << Definition.read(pn.expand_path)
       end
@@ -38,9 +41,11 @@ module Gemtap
     #
     # Renders all of the loaded definitions
     #
+    # @return [[]]
     def render
       Liquid::Template.error_mode = :strict
       core = core_template
+
 
       @definitions.each do |defn|
         puts core.render('defn' => defn)
