@@ -11,10 +11,20 @@ module Gemtap
   # Defines the Command Line Interface for Gemtap
   #
   class CLI < Thor
-    desc "gen [defn_path]", "generates the single yaml definition, or all definitions in the directory"
-    def gen(defn_path)
+    package_name "Gemtap"
+
+    desc "gen [path]", "Renders the single yaml definition, or all definitions in the directory"
+    method_options dry: :boolean, output: :string
+    def gen(path)
       container = Gemtap::DefinitionContainer.new
-      container.load(defn_path).render
+      results = container.load(path).render
+
+      puts results
+
+      unless options[:output] && !options[:dry]
+        # rubocop:disable Rails/Output
+        results.each { |r| puts r[:result] }
+      end
     end
   end
 end

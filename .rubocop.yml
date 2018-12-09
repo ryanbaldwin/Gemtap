@@ -11,7 +11,11 @@ AllCops:
     - bin/spring
     - db/schema.rb
     - db/migrate/*
+    - exe/*
     - node_modules/**/*
+    - gemtap.gemspec
+    - Rakefile
+    - Gemfile
 
 Rails:
   Enabled: true

@@ -7,8 +7,6 @@ module Gemtap
   # A container into which 1 or more definitions can be loaded
   #
   class DefinitionContainer
-    attr_reader :definitions
-
     def initialize
       @definitions = []
       @core_path = Pathname.new(__dir__ + '/templates/core.liquid')
