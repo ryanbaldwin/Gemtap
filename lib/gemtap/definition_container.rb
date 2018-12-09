@@ -11,7 +11,7 @@ module Gemtap
 
     def initialize
       @definitions = []
-      @core_template = Pathname.new(__FILE__).dirname + './templates/core.liquid'
+      @core_path = Pathname.new(__dir__ + '/templates/core.liquid')
     end
 
     def count
@@ -45,11 +45,7 @@ module Gemtap
     def render
       Liquid::Template.error_mode = :strict
       core = core_template
-
-
-      @definitions.each do |defn|
-        puts core.render('defn' => defn)
-      end
+      @definitions.map { |defn| { definition: defn, result: core.render('defn' => defn) } }
     end
 
     private

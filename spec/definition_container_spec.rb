@@ -3,16 +3,23 @@ require 'gemtap'
 describe Gemtap::DefinitionContainer do
   before(:each) do
     @container = Gemtap::DefinitionContainer.new
-    expect(@container.count).to(eq(0))
+    @defs_dir = (__dir__ + '/definitions')
+    expect(@container.count).to be 0
   end
 
   it 'can load a single definition' do
-    @container.load(__dir__ + '/definitions/customer.yml')
-    expect(@container.count).to(eq(1))
+    @container.load("#{@defs_dir}/customer.yml")
+    expect(@container.count).to be 1
   end
 
   it 'can load multiple definitions' do
-    defs_path = (__dir__ + '/definitions')
-    expect(@container.load(defs_path).count).to(eq(2))
+    expect(@container.load(@defs_dir).count).to be 2
+  end
+
+  it 'returns the same number results as templates found' do
+    results = @container.load(@defs_dir).render
+    expect(results.count).to be 2
+
+    expect(results.first.count).to be > 0
   end
 end
