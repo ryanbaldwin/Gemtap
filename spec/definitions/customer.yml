@@ -1,8 +1,13 @@
 Customer:
+  properties:
     - name    : id
       type    : Int
+      default : 0
     - name    : name
       type    : String
+      default : John Doe
     - name    : age
       type    : Int
       default : 40
+    - name    : spouseName
+      type    : String?

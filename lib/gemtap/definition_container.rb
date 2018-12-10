@@ -26,9 +26,10 @@ module Gemtap
     #
     def load(path)
       pn = Pathname.new(path)
+
       if pn.directory?
-        filters = ["*.yml", "*.yaml"].map { |glob| Pathname.new("#{path}/#{glob}").expand_path }
-        @definitions += filters.map { |f| Pathname.glob(f) { |file| Definition.read(file) } }
+        defs = Pathname.glob("#{path}/*.{yml,yaml}").map { |file| Definition.read(file.expand_path) }
+        @definitions += defs
       else
         @definitions << Definition.read(pn.expand_path)
       end

@@ -19,8 +19,6 @@ module Gemtap
       container = Gemtap::DefinitionContainer.new
       results = container.load(path).render
 
-      puts results
-
       unless options[:output] && !options[:dry]
         # rubocop:disable Rails/Output
         results.each { |r| puts r[:result] }

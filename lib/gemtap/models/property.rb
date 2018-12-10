@@ -15,22 +15,7 @@ module Gemtap
     # The type (Int, String, Bool?, etc) for this property
     attr_reader :type
 
-    #
-    # The default value specified for this value, if one exists.
-    # If the property is not an Optional, and no default is provided,
-    # then `default_value` will attempt to provide one for you which
-    # is `empty'ish`. For example, a required `Bool` will be assigned
-    # `false`, `Double`s 0, etc.
-    #
-    # @return [string] The provided default value for this property, if
-    # one was specified; otherwise if the property is required a sensible
-    # default will be returned; otherwise nil.
-    def default_value
-      return @default if @default
-      return nil if @type.end_with?('?')
-
-      default_value_for(@type.downcase.to_sym)
-    end
+    attr_reader :default
 
     #
     # Initializes this Property with a `Mapping of Mappings` yaml sepc.
@@ -39,31 +24,16 @@ module Gemtap
     #
     # @return [type] [description]
     def initialize(prop)
-      @name, @type, @default = prop.values_at('name', 'type', 'default')
+      @name, @type = prop.values_at('name', 'type')
+
+      if d = prop['default'] then @default = stringify_if_needed(d) end
     end
 
     private
 
-    #
-    # The default value
-    attr_reader :default
-
-    #
-    # Given a type, returns an appropriate, minimum viable value
-    # @param type [String] the type (eg. 'Int') of this property
-    #
-    # @return [String] A default value for this property
-    def default_value_for(type)
-      case type.downcase.to_sym
-      when :bool then 'false'
-      when :cgfloat then '0.0'
-      when :character then '""'
-      when :date then 'Date()'
-      when :double then '0.0'
-      when :int then '0'
-      when :string then '""'
-      when :uint then '0'
-      end
+    def stringify_if_needed(value)
+      return value unless %w(String Char).include?(@type)
+      "\"#{value}\""
     end
   end
 end

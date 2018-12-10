@@ -28,4 +28,8 @@ Style/FrozenStringLiteralComment:
 
 Style/MethodCallWithArgsParentheses:
   Exclude:
-    - spec/**
+    - spec/**/*
+
+Style/NestedParenthesizedCalls:
+  Exclude:
+    - spec/**/*

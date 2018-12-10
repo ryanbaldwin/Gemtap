@@ -1,11 +1,12 @@
 require 'liquid'
 require 'pathname'
 require 'yaml'
+require 'pp'
 
 module Gemtap
   class Definition < Liquid::Drop
     attr_reader :model
-    attr_reader :props
+    attr_reader :properties
 
     #
     # Reads a yaml definition from file and
@@ -21,7 +22,7 @@ module Gemtap
     def initialize(hash)
       model, props = hash.first
       @model = model
-      @props = props.map { |prop| Property.new(prop) }
+      @properties = props["properties"].map { |p| Property.new(p) }
     end
   end
 end

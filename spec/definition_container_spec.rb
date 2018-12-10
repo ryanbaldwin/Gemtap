@@ -19,7 +19,6 @@ describe Gemtap::DefinitionContainer do
   it 'returns the same number results as templates found' do
     results = @container.load(@defs_dir).render
     expect(results.count).to be 2
-
-    expect(results.first.count).to be > 0
+    expect(results.first[:result].include? 'Customer.swift').to be true
   end
 end

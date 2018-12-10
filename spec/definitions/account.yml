@@ -1,4 +1,5 @@
 Account:
+  properties:
     - name    : id
       type    : Int
     - name    : username

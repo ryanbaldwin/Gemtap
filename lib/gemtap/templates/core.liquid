@@ -8,14 +8,14 @@
 import Foundation
 
 public protocol {{ defn.model }} {
-  {% for prop in defn.props -%}
+  {% for prop in defn.properties -%}
   var {{ prop.name }}: {{ prop.type }} { get set }
   {% endfor %}
 }
 
 public struct {{ defn.model }}Value {
-  {% for prop in defn.props -%}
-  public var {{ prop.name }}: {{ prop.type }}{% if prop.default_value %} = {{ prop.default_value }} {% endif %}
+  {% for prop in defn.properties -%}
+  public var {{ prop.name }}: {{ prop.type }}{% if prop.default %} = {{ prop.default }} {% endif %}
   {% endfor %}
 }
 
