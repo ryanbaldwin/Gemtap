@@ -13,6 +13,18 @@ public protocol {{ defn.model }} {
   {% endfor %}
 }
 
+{% if defn.encodable? %}
+extension Codable where Self: {{ defn.model }} {
+  // TODO: uh, conform!
+}
+{% endif %}
+
+{% if defn.decodable? %}
+extension Decodable where Self: {{ defn.model }} {
+  // TODO: conform to this one, too.
+}
+{% endif %}
+
 public struct {{ defn.model }}Value {
   {% for prop in defn.properties -%}
   public var {{ prop.name }}: {{ prop.type }}{% if prop.default %} = {{ prop.default }} {% endif %}

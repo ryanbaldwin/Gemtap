@@ -7,6 +7,15 @@ module Gemtap
   class Definition < Liquid::Drop
     attr_reader :model
     attr_reader :properties
+    attr_reader :conforms_to
+
+    def encodable?
+      (@conforms_to & %w(Codable Encodable)).any?
+    end
+
+    def decodable?
+      (@conforms_to & %w(Codable Decodable)).any?
+    end
 
     #
     # Reads a yaml definition from file and
@@ -23,6 +32,7 @@ module Gemtap
       model, props = hash.first
       @model = model
       @properties = props["properties"].map { |p| Property.new(p) }
+      @conforms_to = props["conforms_to"] || []
     end
   end
 end

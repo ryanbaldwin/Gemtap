@@ -1,4 +1,6 @@
 Customer:
+  conforms_to: 
+    - Codable
   properties:
     - name    : id
       type    : Int
